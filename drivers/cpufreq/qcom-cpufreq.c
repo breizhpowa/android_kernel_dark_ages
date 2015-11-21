@@ -147,7 +147,7 @@ static int msm_cpufreq_init(struct cpufreq_policy *policy)
 	ret = cpufreq_table_validate_and_show(policy, table);
 	if (ret) {
 		pr_err("cpufreq: failed to get policy min/max\n");
-	return ret;
+		return ret;
 	}
 
 	cur_freq = clk_get_rate(cpu_clk[policy->cpu])/1000;
