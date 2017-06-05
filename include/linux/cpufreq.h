@@ -732,6 +732,7 @@ unsigned long cpufreq_scale_min_freq_capacity(struct sched_domain *sd, int cpu);
 
 void acct_update_power(struct task_struct *p, cputime_t cputime);
 void cpufreq_task_stats_init(struct task_struct *p);
+<<<<<<< HEAD
 void cpufreq_task_stats_remove_uids(uid_t uid_start, uid_t uid_end);
 int  proc_time_in_state_show(struct seq_file *m, struct pid_namespace *ns,
 	struct pid *pid, struct task_struct *p);
@@ -748,5 +749,11 @@ static inline void cpufreq_task_stats_exit(struct task_struct *p) {}
 static inline void cpufreq_task_stats_remove_uids(uid_t uid_start,
 	uid_t uid_end) {}
 #endif
+=======
+void cpufreq_task_stats_exit(struct task_struct *p);
+void cpufreq_task_stats_remove_uids(uid_t uid_start, uid_t uid_end);
+int  proc_time_in_state_show(struct seq_file *m, struct pid_namespace *ns,
+	struct pid *pid, struct task_struct *p);
+>>>>>>> 6a57fb27c80d... ANDROID: cpufreq: stats: add uid removal for uid_time_in_state
 
 #endif /* _LINUX_CPUFREQ_H */
