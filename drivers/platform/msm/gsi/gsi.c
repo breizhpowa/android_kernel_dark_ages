@@ -21,6 +21,7 @@
 #include "gsi.h"
 #include "gsi_reg.h"
 
+<<<<<<< HEAD
 #define GSI_CMD_TIMEOUT 5000
 #define GSI_STOP_CMD_TIMEOUT_MS 10
 #define GSI_MAX_CH_LOW_WEIGHT 15
