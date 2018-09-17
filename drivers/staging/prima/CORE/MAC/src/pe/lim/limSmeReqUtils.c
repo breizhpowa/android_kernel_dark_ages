@@ -702,11 +702,7 @@ limIsSmeJoinReqValid(tpAniSirGlobal pMac, tpSirSmeJoinReq pJoinReq)
     tANI_U8 valid = true;
 
 
-    //If force_rsne_override is enabled that mean User has provided the
-    //test RSNIE which need to be send as it is in assoc req and thus RSNIE
-    //validity is not required.
-    if (!pJoinReq->force_rsne_override &&
-        !limIsRSNieValidInSmeReqMessage(pMac, &pJoinReq->rsnIE))
+    if (!limIsRSNieValidInSmeReqMessage(pMac, &pJoinReq->rsnIE))
     {
         limLog(pMac, LOGE,
                FL("received SME_JOIN_REQ with invalid RSNIE"));
