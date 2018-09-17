@@ -656,7 +656,6 @@ KBUILD_AFLAGS	+= $(call cc-option,-fno-PIE)
 ifdef CONFIG_CC_OPTIMIZE_FOR_SIZE
 KBUILD_CFLAGS	+= $(call cc-option,-Oz,-Os) $(call cc-disable-warning,maybe-uninitialized,)
 else
-KBUILD_CFLAGS	+= -O2 -finline-functions -Wno-maybe-uninitialized -Wno-nonnull -Wno-incompatible-pointer-types -Wno-duplicate-decl-specifier -Wno-memset-transposed-args -Wno-misleading-indentation -Wno-shift-overflow -Wno-switch-unreachable -Wno-unused-variable
 ifeq ($(cc-name),clang)
 KBUILD_CFLAGS	+= $(call cc-option, -O3,)
 LDFLAGS			+= $(call ld-option, -O3)
@@ -664,6 +663,7 @@ else
 KBUILD_CFLAGS	+= $(call cc-option, -O2,)
 LDFLAGS			+= $(call ld-option, -O2)
 endif
+\
 endif
 
 ifdef CONFIG_CC_WERROR
