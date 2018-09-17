@@ -3,7 +3,7 @@ NAME ?= Dark-Ages
 
 DATE := $(shell date "+%d%m%Y-%I%M")
 
-CODE := Tercero-Mix
+CODE := Cuarto
 
 ZIP := $(NAME)-$(CODE)-$(DATE).zip
 EZIP := $(NAME)-$(CODE)-EAS-$(DATE).zip
