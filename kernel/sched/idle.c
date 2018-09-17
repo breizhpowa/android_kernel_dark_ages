@@ -250,16 +250,11 @@ static void cpu_idle_loop(void)
 			check_pgt_cache();
 			rmb();
 
-<<<<<<< HEAD
-			if (cpu_is_offline(smp_processor_id())) {
+			if (cpu_is_offline(raw_smp_processor_id())) {
 				rcu_cpu_notify(NULL, CPU_DYING_IDLE,
 					       (void *)(long)smp_processor_id());
 				smp_mb(); /* all activity before dead. */
 				this_cpu_write(cpu_dead_idle, true);
-=======
-
-			if (cpu_is_offline(raw_smp_processor_id()))
->>>>>>> a1a71020d5d4... vince: Replace old "smp_processor" to a new one, "raw_smp" this can handle with higher facility realtime tasks
 				arch_cpu_idle_dead();
 			}
 
@@ -306,6 +301,7 @@ static void cpu_idle_loop(void)
 		sched_ttwu_pending();
 		schedule_preempt_disabled();
 	}
+
 }
 
 void cpu_startup_entry(enum cpuhp_state state)

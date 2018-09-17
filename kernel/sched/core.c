@@ -2845,11 +2845,11 @@ void sched_exec(void)
 {
 	struct task_struct *p = current;
 	unsigned long flags;
-	int dest_cpu;
+	int dest_cpu, curr_cpu;
 
 	raw_spin_lock_irqsave(&p->pi_lock, flags);
 	curr_cpu = task_cpu(p);
-	dest_cpu = p->sched_class->select_task_rq(p, task_cpu(p), SD_BALANCE_EXEC, 0);
+	dest_cpu = p->sched_class->select_task_rq(p, task_cpu(p), SD_BALANCE_EXEC, 0, 1);
 	if (dest_cpu == raw_smp_processor_id())
 		goto unlock;
 
