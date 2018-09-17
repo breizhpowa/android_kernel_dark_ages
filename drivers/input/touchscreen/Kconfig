@@ -1278,6 +1278,12 @@ config XIAOMI_D2A
 	bool "XIAOMI D2A use"
 	depends on I2C
 	help
-	  for D2A.
+	  Say Y here if you have a Himax CHIPSET touchscreen.
+	  HIMAX controllers are multi touch controllers which can
+	  report 10 touches at a time.
+
+          If unsure, say N.
+
+source "drivers/input/touchscreen/hxchipset/Kconfig"
 
 endif
